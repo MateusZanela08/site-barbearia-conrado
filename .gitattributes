@@ -1,0 +1,4 @@
+# todos os arquivos de texto com fim de linha no padrão LF (o mesmo do Prettier)
+* text=auto eol=lf
+*.jpg binary
+*.png binary
