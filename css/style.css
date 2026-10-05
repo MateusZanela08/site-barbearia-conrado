@@ -1513,10 +1513,11 @@ svg {
     opacity: 0.7;
 }
 
-/* ===== BOTÃO FLUTUANTE ===== */
+/* ===== BOTÃO FLUTUANTE =====
+   Fica no canto ESQUERDO: o direito é ocupado pelo selo "Powered by Netlify" da hospedagem. */
 .agendar-flutuante {
     position: fixed;
-    right: 22px;
+    left: 22px;
     bottom: 22px;
     z-index: 40;
     display: flex;
@@ -1825,32 +1826,32 @@ svg {
         border-radius: 12px;
     }
 
-    /* no celular as setas da lightbox ficam embaixo, para não cobrir a foto */
+    /* no celular: setas nas laterais (meio da tela) e contador no topo.
+       Assim nada fica no canto de baixo, onde a hospedagem coloca o selo "Powered by Netlify". */
     .lightbox {
-        padding: 70px 12px 90px;
+        padding: 70px 12px;
     }
 
     .lightbox img {
-        max-height: calc(100vh - 170px);
+        max-height: calc(100vh - 140px);
     }
 
-    .lightbox-anterior,
-    .lightbox-proxima {
-        top: auto;
-        bottom: 22px;
-        margin-top: 0;
+    .lightbox-botao {
+        width: 44px;
+        height: 44px;
     }
 
     .lightbox-anterior {
-        left: calc(50% - 70px);
+        left: 6px;
     }
 
     .lightbox-proxima {
-        right: calc(50% - 70px);
+        right: 6px;
     }
 
     .lightbox-contador {
-        bottom: 38px;
+        top: 26px;
+        bottom: auto;
     }
 
     .barbeiro {
@@ -1911,7 +1912,7 @@ svg {
     }
 
     .agendar-flutuante {
-        right: 16px;
+        left: 16px;
         bottom: 16px;
     }
 }

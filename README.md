@@ -3,6 +3,8 @@
 Site institucional da **Conrado's Barber**, barbearia no bairro Santa Mônica, em Florianópolis (SC).
 Feito do zero com **HTML, CSS e JavaScript puros**, sem frameworks.
 
+🔗 **Site no ar:** [conradobarber.netlify.app](https://conradobarber.netlify.app)
+
 ![Página inicial no computador](docs/preview-computador.jpg)
 
 <p align="center">
