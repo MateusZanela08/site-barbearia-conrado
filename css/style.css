@@ -1646,8 +1646,13 @@ svg {
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--borda);
-        transform: translateY(-120%);
+        /* fechado: sobe a altura dele + a do cabeçalho, assim some por completo */
+        transform: translateY(calc(-100% - var(--altura-topo)));
         transition: transform 0.4s ease;
+        /* se a tela for baixa (celular deitado), o menu ganha rolagem em vez de cortar */
+        max-height: calc(100vh - var(--altura-topo));
+        max-height: calc(100dvh - var(--altura-topo));
+        overflow-y: auto;
     }
 
     .menu.aberto {
@@ -1730,6 +1735,15 @@ svg {
         width: 100%;
     }
 
+    /* botões grandes podem quebrar a linha no celular, em vez de passar da tela */
+    .botao-grande {
+        padding: 16px 20px;
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+        white-space: normal;
+        text-align: center;
+    }
+
     .capa::before {
         font-size: 32vw;
         bottom: auto;
@@ -1802,6 +1816,26 @@ svg {
 
     .tabela-grupos {
         columns: 1;
+    }
+
+    /* tabela no celular: nome e preço na mesma linha, o tempo vai pra baixo do nome
+       (assim o nome do serviço não fica espremido em 3 linhas) */
+    .tabela-grupo li {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 12px;
+        row-gap: 0;
+    }
+
+    .item-preco {
+        grid-row: 1 / 3;
+        grid-column: 2;
+        align-self: center;
+        min-width: 0;
+    }
+
+    .item-tempo:empty {
+        display: none;
     }
 
     .pagina:not([data-pagina="inicio"]) > .secao {
@@ -1904,7 +1938,23 @@ svg {
     }
 
     .horarios li {
+        gap: 10px;
         padding: 12px 16px;
+    }
+
+    /* dia e horário sempre numa linha só (o selo "Hoje" ficava empurrando o texto) */
+    .horarios li span {
+        white-space: nowrap;
+    }
+
+    .horarios li.hoje span:first-child::after {
+        margin-left: 6px;
+        padding: 2px 8px;
+        font-size: 0.62rem;
+    }
+
+    .status {
+        font-size: 0.84rem;
     }
 
     .mapa {
